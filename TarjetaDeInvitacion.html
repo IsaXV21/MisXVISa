@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Invitación</title>
+    <link rel="stylesheet" href="style2.css">
+    <style>
+        /* El contenedor principal estará oculto hasta que pase la verificación */
+        #contenidoPrincipal {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Contenedor principal que solo se mostrará tras la verificación -->
+    <section id="contenidoPrincipal">
+        <div id="portada">
+            <h2 class="titlem"> Mis 15</h2>
+            <img src="Isa1.png" alt="Marco Isa">
+            <h2 class="name"> Isabella</h2>
+            <a class="date">SÁBADO 7 DE NOVIEMBRE</a>
+            <a class="date">6:30 p.m </a>
+        </div>
+        <div id="grid-container">
+            <div class="countdown-container">
+                <div class="countdown">
+                    <div class="time">
+                        <span id="days">0</span>
+                        <p>Días</p>
+                    </div>
+                    <span class="separator">:</span>
+                    <div class="time">
+                        <span id="hours">0</span>
+                        <p>Hs</p>
+                    </div>
+                    <span class="separator">:</span>
+                    <div class="time">
+                        <span id="minutes">0</span>
+                        <p>Min</p>
+                    </div>
+                    <span class="separator">:</span>
+                    <div class="time">
+                        <span id="seconds">0</span>
+                        <p>Seg</p>
+                    </div>
+                </div>
+            </div>
+            <div id="text1" class="fade-in">
+                <img src="corona.png" class="fade-in" alt="Corona">
+                <h2>Con la bendición de Dios y en compañía de sus padres:</h2>
+                <h1>Marcela Gerena Velasco</h1>
+                <h1>&</h1>
+                <h1>Jhony    Sanchez Carrillo</h1>
+                <p>Una noche mágica, una corona y un cuento de hadas que apenas comienza. Acompáñanos a escribir este capítulo en la gala real de la Princesa Isabella.</p>
+            </div>
+            <div id="text2" class="fade-in">
+                <img src="bola.png" alt="Bola Disco">
+                <h1>Recepción</h1>
+                <p>Carrera 96h bis #23j - 30,</p>
+                <p>Salón Comunal La Cofradía</p>
+                <a href="https://www.waze.com/es/live-map/directions/salon-comunal-la-cofradia-carrera-96-h-bis-23-bogota?to=place.w.187367471.1873478100.9379227">
+                    <button>¿CÓMO LLEGAR?</button>
+                </a>
+            </div>
+            <div id="text3" class="fade-in">
+                <h1>Dress Code</h1>
+                <img src="silueta.png" alt="Silueta">               
+                <h2>Traje Cóctel</h2>
+                <p>Para mantener la magia de la noche, les pedimos reservar el verde en todas sus tonalidades para la Princesa Isabella.</p>
+            </div>
+            <div id="text4" class="fade-in">
+                <h1>¡ Te esperamos !</h1>
+                <img src="sapos.png" alt="Siluetas Sapos">
+                <p>Asegura tu lugar en esta noche mágica. Por favor, confirma tu asistencia</p>
+                <a href="">(Lluvia de sobres)</a>
+                <a href="https://wa.link/y90klr">
+                    <button>¡CONFIRMAR ASISTENCIA!</button>
+                </a>
+            </div>
+            <div id="foto" class="fade-in">
+                <img src="beso.png" alt="Beso">
+            </div>
+            <div id="text5" class="fade-in">
+                <img src="img/ray.png" alt="">
+                <h1>Recuerda</h1>
+                <p>Agradecemos tu puntualidad para no perderte ningún momento mágico.</p>            </div>
+            <div id="text6" class="fade-in">
+                <img src="camara.png" alt="">
+                <h1>Captura la Magia</h1>
+                <p>Ayúdanos a conservar cada recuerdo de esta noche mágica. Sube aquí las fotos y videos que tomaste durante la gala.</p>
+                <a href="https://drive.google.com/drive/folders/1l1-w61rudCVfBYXuep0g5_BJqaXf8JRn?usp=sharing">
+
+                    <button>SUBIR FOTOS</button>
+                </a>
+            </div>
+            <div id="final" class="fade-in">
+                <h1>"Y así, la pequeña niña de los cuentos creció para convertirse en la princesa de su propia historia."</h1>
+            </div>
+        </div>
+        <div id="portada2" class="fade-in">
+            <img src="bebe.png" alt="Andres & Derly">
+        </div>
+    </section>
+    <script>
+        // Script de verificación
+        window.onload = function() {
+            // Verificar si el usuario ha completado el proceso
+            const codigoVerificado = sessionStorage.getItem('codigoVerificado');
+            const pasoPagina2 = sessionStorage.getItem('pasoPagina2');
+
+            // Si no ha completado el proceso, mostrar alert y redirigir
+            if (!codigoVerificado || codigoVerificado !== 'true' || !pasoPagina2 || pasoPagina2 !== 'true') {
+                alert("Debes verificar tu código de invitación primero");
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Si pasó la verificación, mostrar el contenido
+            document.getElementById('contenidoPrincipal').style.display = 'block';
+        }
+    </script>
+    <script>
+  const countdownDate = new Date("November 07, 2026 18:00:00").getTime();
+
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+
+    if (distance <= 0) {
+      document.querySelector(".countdown").innerHTML = "¡Ya llegó el día!";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days;
+    document.getElementById("hours").textContent = hours;
+    document.getElementById("minutes").textContent = minutes;
+    document.getElementById("seconds").textContent = seconds;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+    </script>
+    <script>
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    },{
+        threshold: 0.2});
+        document.querySelectorAll(".fade-in").forEach(el => {
+    observer.observe(el);
+});
+</script>
+</body>
+</html>

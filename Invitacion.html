@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalles de Invitación</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2 id="nombres"></h2>
+        <p>¡Esperamos que puedan compartir esta fiesta junto a nosotros!</p>
+        <p>NÚMERO DE INVITADOS:</p>
+        <p id="cupos"></p>
+        <button onclick="continuarATarjeta()">ABRIR INVITACIÓN</button>
+    </div>
+
+    <script>
+        // Verificar si el usuario ha pasado por la verificación
+        window.onload = function() {
+            const codigoVerificado = sessionStorage.getItem('codigoVerificado');
+
+            if (!codigoVerificado || codigoVerificado !== 'true') {
+                // No ha pasado por la verificación, redirigir a la página 1
+                alert("Debes verificar tu código primero");
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Mostrar los datos de la invitación
+            const invitacionDatos = JSON.parse(sessionStorage.getItem('invitacionDatos'));
+
+            if (invitacionDatos) {
+                document.getElementById('nombres').textContent = invitacionDatos.nombre.replaceAll(';', ', ');
+                document.getElementById('cupos').textContent = invitacionDatos.numeroInvitados;
+
+                // Marcar que ha pasado por la página 2
+                sessionStorage.setItem('pasoPagina2', 'true');
+            } else {
+                // Datos no encontrados, redirigir a la página 1
+                alert("Ha ocurrido un error. Por favor, verifica tu código nuevamente.");
+                window.location.href = 'index.html';
+            }
+        }
+
+        function continuarATarjeta() {
+            window.location.href = 'TarjetaDeInvitacion.html';
+        }
+    </script>
+</body>
+</html>
+

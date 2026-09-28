@@ -1,0 +1,364 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap');
+
+/* Regla global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #fffbef;
+    color: #513016;
+}
+h1{
+    font-family: "Imperial Script", cursive;
+    font-size: 3em;
+    text-align: center;
+}
+/* Portada a pantalla completa */
+#portada {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5 em 0;
+}
+    #portada img {
+        width: 80%;
+    }
+    #portada h2 {
+        font-family: "Imperial Script", cursive;
+        font-size: 5em;
+        color: #513016;
+    }
+    #portada a {
+        color: #513016;
+        font-size: 1.4em ;
+        font-weight: bolder;
+    }
+
+#text1 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.8em;
+}
+    #text1 img{
+        width: 50%;
+        padding-bottom: 1.5em;
+    }
+
+    #text1 h2 {
+        text-align: center;
+        font-size: 1.6em;
+        max-width: 90%;
+        padding-bottom: 1em;
+    }
+    #text1 p {
+        text-align: center;
+        font-size: 1.4em;
+        max-width: 90%;
+        padding-top: 1em;
+    }
+
+#grid-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5 em 0;
+}
+
+.countdown-container {
+    text-align: center;
+    padding: 1em 6em;
+    color: #513016;
+}
+
+.countdown {
+    display: flex;
+    justify-content: space-around;
+}
+
+.time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .time span {
+        font-size: 3em;
+        font-weight: bold;
+    }
+
+.separator {
+    font-size: 3em;
+    margin: 0 5px;
+    color: #000;
+}
+
+.time p {
+    margin: 0;
+    font-size: 1.2em;
+    color: #000000;
+}
+
+#text2 {
+    text-align: center;
+}
+
+    #text2 img {
+        width: 20%;
+        margin-top: 1em;
+    }
+#text3 {
+    text-align: center;
+}
+
+    #text3 h1 {
+        font-family: "Imperial Script", cursive;
+        font-size: 3em;
+    }
+
+    #text3 p {
+        font-size: 1.2em;
+    }
+
+    #text3 img { 
+        width: 20%;
+    }
+
+#text4 {
+    text-align: center;
+}
+
+    #text4 h1 {
+        font-family: "Imperial Script", cursive;
+        font-size: 3em;
+    }
+
+    #text4 p {
+        font-size: 1.2em;
+    }
+
+    #text4 img {
+        width: 20%;
+    }
+    #text4 a{
+        color: #513016;
+        text-decoration: none ;
+        font-style: italic;
+
+    }
+    
+#foto {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+
+}
+
+    #foto img {
+        width: 100%;
+    }
+
+#text5 {
+    text-align: center;
+}
+
+    #text5 img {
+        width: 20%;
+    }
+
+    #text5 h1 {
+        padding-bottom: 2%;
+    }
+
+#final {
+    text-align: center;
+    padding: 5%;
+}
+    #final h1 {
+        font-size: 2em;
+    }
+
+#text6 {
+    text-align: center;
+}
+
+    #text6 img {
+        width: 20%;
+        margin-top: 1em;
+    }
+
+#portada2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+    #portada2 img {
+        width: 80%;
+        padding-bottom: 1em;
+    }
+
+.fade-in {
+    opacity: 0;
+    transform: scale(0.9) translateY(30px);
+    transition: all 1s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
+
+/* Título Mis 15 */
+.titlem{
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 0.2s;
+}
+
+/* Foto */
+#portada img{
+    opacity: 0;
+    transform: scale(0.9);
+    animation: zoomIn 1.2s ease forwards;
+    animation-delay: 0.8s;
+}
+
+/* Isabella */
+.name{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 1.4s;
+}
+
+/* Fecha */
+.date{
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 1s ease forwards;
+    animation-delay: 1.9s;
+}
+
+/* Contador */
+.countdown-container{
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeUp 1.2s ease forwards;
+    animation-delay: 2.4s;
+}
+
+/* Animaciones */
+
+@keyframes fadeUp{
+    from{
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomIn{
+    from{
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Contenedor de error */
+.error-container {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 500px;
+    padding: 20px;
+    border: 1px solid #f44336;
+    border-radius: 5px;
+    background-color: #fff5da;
+    display: none;
+}
+
+.error-message {
+    color: #f44336;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Botones */
+button {
+    background-color: #2d5a44; 
+    color: #fffbef;
+    text-align: center;
+    padding: 1em 3em;
+    display: block;
+    margin: 10px auto;
+    border: 1px solid #c3d7a4;
+    border-radius: 30px;
+    font-weight: bold;
+    box-shadow: 0px 4px 12px rgba(81, 48, 22, 0.15);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.button:active,
+.button:hover{
+    background-color: #c3d7a4;
+    color: #513016;
+    border-color: #513016;
+    transform: translateY(-2px);
+    box-shadow: 0px 6px 16px rgba(81, 48, 22, 0.25);
+}
+
+/* Contenedor de la tarjeta (oculto por defecto) */
+#tarjetaContainer {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+/* En pantallas grandes (computadoras) */
+@media (min-width: 768px) {
+    #grid-container {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+        #grid-container div {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+            /* Opcional: im�genes responsivas dentro de cada div */
+            #grid-container div img {
+                width: 100%;
+                height: auto;
+            }
+}
+
+/* Responsive: contenedores m�s anchos en pantallas grandes */
+@media (min-width: 768px) {
+    .container {
+        width: 400px;
+        margin: 0 auto;
+    }
+}
