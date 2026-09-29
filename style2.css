@@ -20,6 +20,9 @@ h1{
     font-size: 3em;
     text-align: center;
 }
+a{
+    text-decoration: none;
+}
 /* Portada a pantalla completa */
 #portada {
     width: 100%;
@@ -308,7 +311,6 @@ button {
     background-color: #2d5a44; 
     color: #fffbef;
     text-align: center;
-    text-decoration: none;
     padding: 1em 3em;
     display: block;
     margin: 10px auto;
